@@ -30,7 +30,7 @@
     "@types/node": "^22.15.30",
     "@typescript-eslint/eslint-plugin": "^8.17.0",
     "@typescript-eslint/parser": "^8.17.0",
-    "eslint": "^9.16.0",
+    "eslint": "^9.30.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-playwright": "^2.1.0",
     "globals": "^16.2.0",
