@@ -13,7 +13,7 @@ test.describe('Homepage', () => {
     //TODO
     //Improve test case, create a fixture for homepage
     homepage = new Homepage(page);
-    await expect(homepage.productContainerName.nth(0)).toHaveText('Patched Product Name');
+    await expect(homepage.productContainerName.nth(0)).toHaveText('Combination Pliers');
     await expect(homepage.productContainerPrice.nth(0)).toHaveText('$14.15');
     //Verify product image
     await expect(homepage.productsContainer.nth(0).locator(homepage.imageProductCardAttribute)).toHaveAttribute('src');
