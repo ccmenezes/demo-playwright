@@ -13,9 +13,8 @@ test.describe('Homepage', () => {
     //TODO
     //Improve test case, create a fixture for homepage
     homepage = new Homepage(page);
-    const NAME_PRICE_PRODUCT_CARD = 'Combination Pliers $14.15';
-    //Verify product name and price
-    await expect(homepage.productsContainer.nth(0)).toHaveText(NAME_PRICE_PRODUCT_CARD);
+    await expect(homepage.productContainerName.nth(0)).toHaveText('Patched Product Name');
+    await expect(homepage.productContainerPrice.nth(0)).toHaveText('$14.15');
     //Verify product image
     await expect(homepage.productsContainer.nth(0).locator(homepage.imageProductCardAttribute)).toHaveAttribute('src');
   });

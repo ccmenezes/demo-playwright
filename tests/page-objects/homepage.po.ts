@@ -16,6 +16,8 @@ export class Homepage extends BasePage {
   readonly tabSeven: Locator;
   readonly firstProduct: Locator;
   readonly outOfStockProduct: Locator;
+  readonly productContainerName: Locator;
+  readonly productContainerPrice: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -26,7 +28,9 @@ export class Homepage extends BasePage {
     this.tabFive = page.getByLabel('Page-5');
     this.paginationList = page.locator('.pagination > li');
     this.productsContainer = page.locator('div.container > .card');
-    this.imageProductCardAttribute = page.locator('> div.card-img-wrapper > img');
+    this.imageProductCardAttribute = page.locator('.card-img-wrapper > img');
+    this.productContainerName = page.locator('[data-test*="product"][data-test="product-name"]');
+    this.productContainerPrice = page.locator('[data-test*="product"][data-test="product-price"]');
   }
 
   async clickOnTab(pageNumber: number) {
