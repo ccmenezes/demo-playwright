@@ -49,41 +49,67 @@ export class Homepage extends BasePage {
     this.productContainerPrice = page.locator('[data-test*="product"][data-test="product-price"]');
 
     // Self-healing selectors: list of alternative selectors ordered from most specific to fallback
-    this.productsContainerSH = new SelfHealingLocator(page, [
-      'div.container > .card',
-      '.product-card',
-      '.card.product',
-      '[data-test*="product"][data-test="product-card"]',
-    ], 'productsContainer');
+    this.productsContainerSH = new SelfHealingLocator(
+      page,
+      ['div.container > .card', '.product-card', '.card.product', '[data-test*="product"][data-test="product-card"]'],
+      'productsContainer',
+    );
 
-    this.imageProductCardSH = new SelfHealingLocator(page, [
-      '.card-img-wrapper > img',
-      '.product-card img',
-      '.card .product-image img',
-      'img[data-test="product-image"]',
-    ], 'productImage');
+    this.imageProductCardSH = new SelfHealingLocator(
+      page,
+      ['.card-img-wrapper > img', '.product-card img', '.card .product-image img', 'img[data-test="product-image"]'],
+      'productImage',
+    );
 
     // Tabs: prefer aria-label based CSS selectors as alternatives to getByLabel
-    this.tabOneSH = new SelfHealingLocator(page, ['[aria-label="Page-1"]', '[data-page="1"]', '.pagination li:nth-child(1) a']);
-    this.tabTwoSH = new SelfHealingLocator(page, ['[aria-label="Page-2"]', '[data-page="2"]', '.pagination li:nth-child(2) a']);
-    this.tabThreeSH = new SelfHealingLocator(page, ['[aria-label="Page-3"]', '[data-page="3"]', '.pagination li:nth-child(3) a']);
-    this.tabFourSH = new SelfHealingLocator(page, ['[aria-label="Page-4"]', '[data-page="4"]', '.pagination li:nth-child(4) a']);
-    this.tabFiveSH = new SelfHealingLocator(page, ['[aria-label="Page-5"]', '[data-page="5"]', '.pagination li:nth-child(5) a']);
+    this.tabOneSH = new SelfHealingLocator(page, [
+      '[aria-label="Page-1"]',
+      '[data-page="1"]',
+      '.pagination li:nth-child(1) a',
+    ]);
+    this.tabTwoSH = new SelfHealingLocator(page, [
+      '[aria-label="Page-2"]',
+      '[data-page="2"]',
+      '.pagination li:nth-child(2) a',
+    ]);
+    this.tabThreeSH = new SelfHealingLocator(page, [
+      '[aria-label="Page-3"]',
+      '[data-page="3"]',
+      '.pagination li:nth-child(3) a',
+    ]);
+    this.tabFourSH = new SelfHealingLocator(page, [
+      '[aria-label="Page-4"]',
+      '[data-page="4"]',
+      '.pagination li:nth-child(4) a',
+    ]);
+    this.tabFiveSH = new SelfHealingLocator(page, [
+      '[aria-label="Page-5"]',
+      '[data-page="5"]',
+      '.pagination li:nth-child(5) a',
+    ]);
 
     // name/price self-healing
-    this.productContainerNameSH = new SelfHealingLocator(page, [
-      '[data-test*="product"][data-test="product-name"]',
-      '[data-test="product-name"]',
-      '.product-name',
-      '.card .product-title',
-    ], 'productName');
+    this.productContainerNameSH = new SelfHealingLocator(
+      page,
+      [
+        '[data-test*="product"][data-test="product-name"]',
+        '[data-test="product-name"]',
+        '.product-name',
+        '.card .product-title',
+      ],
+      'productName',
+    );
 
-    this.productContainerPriceSH = new SelfHealingLocator(page, [
-      '[data-test*="product"][data-test="product-price"]',
-      '[data-test="product-price"]',
-      '.product-price',
-      '.card .price',
-    ], 'productPrice');
+    this.productContainerPriceSH = new SelfHealingLocator(
+      page,
+      [
+        '[data-test*="product"][data-test="product-price"]',
+        '[data-test="product-price"]',
+        '.product-price',
+        '.card .price',
+      ],
+      'productPrice',
+    );
   }
 
   // Helper methods that expose Locators resolved via self-healing. Tests can opt-in to use these
