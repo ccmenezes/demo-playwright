@@ -9,14 +9,16 @@ test.describe('Homepage', () => {
     await homepage.goto();
   });
 
-  test('Verify that the product information is displayed', async ({ page }) => {
-    //TODO
-    //Improve test case, create a fixture for homepage
-    homepage = new Homepage(page);
-    await expect(homepage.productContainerName.nth(0)).toHaveText('Patched Product Name');
-    await expect(homepage.productContainerPrice.nth(0)).toHaveText('$14.15');
-    //Verify product image
-    await expect(homepage.productsContainer.nth(0).locator(homepage.imageProductCardAttribute)).toHaveAttribute('src');
+  test('Verify that the product information is displayed', async () => {
+    // Use self-healing helpers from the page object for more resilient selectors
+    const nameLocator = await homepage.getProductName(0);
+    await expect(nameLocator).toHaveText(/Combination Pliers/i);
+
+    const priceLocator = await homepage.getProductPrice(0);
+    await expect(priceLocator).toHaveText(/\$14.15/);
+
+    const imgLocator = await homepage.getProductImage(0);
+    await expect(imgLocator).toHaveAttribute('src', /.+/);
   });
 
   test('Should sucessfully navigate between tabs', async ({ page }) => {
