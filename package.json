@@ -12,7 +12,11 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "clean:report": "rm -rf output",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "init-agents": "npx playwright init-agents",
+    "agents:serve": "npx playwright run-test-mcp-server",
+    "healer": "node ./scripts/healer.js",
+    "healer:dry": "node ./scripts/healer.js --dry"
   },
   "keywords": [
     "technical assignment",
